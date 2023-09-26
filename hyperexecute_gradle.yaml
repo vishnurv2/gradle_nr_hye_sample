@@ -1,0 +1,33 @@
+---
+version: 0.1
+
+globalTimeout: 150
+testSuiteTimeout: 150
+testSuiteStep: 150
+
+runson: linux
+
+retryOnFailure: false
+maxRetries: 1
+
+concurrency: 4
+
+pre:
+  - printenv
+
+matrix: 
+    AGP_VERSION : ["7.2.0","7.3.0"]
+
+runtime:
+  language: java
+  version: ${STATIC_DATA_1_JAVA_VERSION}
+  addons:
+    - name: "gradle"
+      version: "${STATIC_DATA_1_GRADLE_VERSION}"
+    - name: "android-sdk"
+      version: ${STATIC_DATA_1_ANDROID_SDK_VERSION}
+
+
+testSuites: 
+    - gradle --version
+    - gradle clean build 

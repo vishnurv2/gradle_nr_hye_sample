@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'newrelic'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example.dbdemoapp"
+        minSdk 24
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+//    newrelic {
+//        // use a common buildId for all variants (default: true)
+//        variantMapsEnabled true
+//
+//        // Tag and report Proguard maps for these build types (default: Release)
+//        uploadMapsForVariant("Release")
+//
+//        // instrument all variants
+//        excludeVariantInstrumentation("")
+//    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.5.0'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    //NR Library
+    implementation 'com.newrelic.agent.android:android-agent:6.11.1'
+    implementation 'com.newrelic.agent.android:agent-ndk:1.0.2'
+}

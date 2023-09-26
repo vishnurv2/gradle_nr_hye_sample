@@ -1,0 +1,26 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        mavenLocal()
+//        maven { url uri("https://oss.sonatype.org/content/repositories/comnewrelic-2706") }
+        flatDir {
+            dirs("libs")
+        }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        mavenLocal()
+//        maven { url uri("https://oss.sonatype.org/content/repositories/comnewrelic-2706") }
+        flatDir {
+            dirs("libs")
+        }
+    }
+}
+rootProject.name = "DBDemoApp"
+include ':app'
